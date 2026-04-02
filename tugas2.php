@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 // koneksi database
 $conn = mysqli_connect("localhost", "root", "", "AgriLens");
 if (!$conn) {
@@ -38,11 +39,13 @@ if (isset($_POST['simpan'])) {
     }
 
     if ($id == "") {
+
         // CREATE
         $date = date("Y-m-d H:i:s");
         mysqli_query($conn, "INSERT INTO news (judul, deskripsi, file, date)
         VALUES ('$judul', '$deskripsi', '$fileName', '$date')");
     } else {
+
         // UPDATE
         if ($fileName != "") {
             mysqli_query($conn, "UPDATE news 
@@ -67,10 +70,8 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
-
 // EDIT (AMBIL DATA) 
 $editData = null;
-
 if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
     $result = mysqli_query($conn, "SELECT * FROM news WHERE id=$id");
