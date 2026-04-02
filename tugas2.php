@@ -139,9 +139,9 @@ if (isset($_GET['edit'])) {
         </tr>
 
         <?php
-        $result = mysqli_query($conn, "SELECT * FROM news");
-        while ($p = mysqli_fetch_assoc($result)) {
-        ?>
+            $result = mysqli_query($conn, "SELECT * FROM news");
+            while ($p = mysqli_fetch_assoc($result)) {
+            ?>
             <tr>
                 <td><?= $p['judul'] ?></td>
                 <td><?= $p['deskripsi'] ?></td>
@@ -158,7 +158,6 @@ if (isset($_GET['edit'])) {
             </tr>
         <?php } ?>
     </table>
-
 <?php } ?>
 </body>
 </html>
